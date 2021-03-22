@@ -4,10 +4,8 @@ import { expect } from 'chai';
 import sinon from 'sinon-sandbox';
 
 import {
-  describeIf,
   itIf,
 } from '../../_helpers';
-import { is } from '../../_helpers/version';
 
 import {
   createClass,
@@ -58,7 +56,7 @@ export default function describeSetContext({
       );
     });
 
-    describeIf(is('> 0.13'), 'stateless functional components', () => {
+    describe('stateless functional components', () => {
       const SFC = (props, { name }) => (
         <div>{name}</div>
       );
@@ -128,7 +126,7 @@ export default function describeSetContext({
 </Foo>`);
     });
 
-    itIf(is('>= 16.3'), 'calls componentWillReceiveProps and UNSAFE_componentWillReceiveProps when context is updated', () => {
+    itIf(true, 'calls componentWillReceiveProps and UNSAFE_componentWillReceiveProps when context is updated', () => {
       const spy = sinon.spy();
       const updatedProps = { foo: 'baz' };
       class Foo extends React.Component {

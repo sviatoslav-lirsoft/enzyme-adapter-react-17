@@ -2,12 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 
 import {
-  describeIf,
   itIf,
   itWithData,
   generateEmptyRenderData,
 } from '../../_helpers';
-import { is } from '../../_helpers/version';
 
 import {
   createClass,
@@ -85,7 +83,7 @@ export default function describeIsEmptyRender({
         expect(wrapper.isEmptyRender()).to.equal(false);
       });
 
-      itIf(is('>= 16'), 'returns false for multiple nested elements that all return null', () => {
+      itIf(true, 'returns false for multiple nested elements that all return null', () => {
         const wrapper = Wrap((
           <RenderChildren>
             <RenderNull />
@@ -99,7 +97,7 @@ export default function describeIsEmptyRender({
         expect(wrapper.isEmptyRender()).to.equal(false);
       });
 
-      itIf(is('>= 16'), 'returns false for multiple nested elements where one fringe returns a non null value', () => {
+      itIf(true, 'returns false for multiple nested elements where one fringe returns a non null value', () => {
         const wrapper = Wrap((
           <RenderChildren>
             <RenderNull />
@@ -122,7 +120,7 @@ export default function describeIsEmptyRender({
         expect(wrapper.isEmptyRender()).to.equal(false);
       });
 
-      itIf(is('>= 16'), `returns ${!isShallow} for multiple nested elements where all values are null`, () => {
+      itIf(true, `returns ${!isShallow} for multiple nested elements where all values are null`, () => {
         const wrapper = Wrap((
           <RenderChildren>
             <RenderNull />
@@ -150,7 +148,7 @@ export default function describeIsEmptyRender({
       expect(wrapper.isEmptyRender()).to.equal(false);
     });
 
-    describeIf(is('>=15 || ^16.0.0-alpha'), 'stateless function components (SFCs)', () => {
+    describe('stateless function components (SFCs)', () => {
       itWithData(emptyRenderValues, 'when a component returns: ', (data) => {
         function Foo() {
           return data.value;
