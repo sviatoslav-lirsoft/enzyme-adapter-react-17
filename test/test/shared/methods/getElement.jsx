@@ -39,7 +39,7 @@ export default function describeGetElement({
       expect(wrapper.instance().node).to.equal(mockNode);
     });
 
-    itIf(true, 'returns nodes with createRefs as well', () => {
+    it('returns nodes with createRefs as well', () => {
       class Foo extends React.Component {
         constructor(props) {
           super(props);
@@ -85,7 +85,7 @@ export default function describeGetElement({
       expect(wrapper.getElement()).to.have.property('key', null);
     });
 
-    itIf(true, 'does not add a "null" key to elements with a createRef and no key', () => {
+    it('does not add a "null" key to elements with a createRef and no key', () => {
       class Foo extends React.Component {
         constructor(props) {
           super(props);

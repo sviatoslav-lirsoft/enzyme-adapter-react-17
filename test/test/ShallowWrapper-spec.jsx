@@ -90,7 +90,7 @@ describe('shallow', () => {
         ))).to.throw(Error, 'Can only set one of `children` or `props.dangerouslySetInnerHTML`.');
       });
 
-      itIf(true, 'throws when shallow rendering Portals', () => {
+      it('throws when shallow rendering Portals', () => {
         const portal = createPortal(
           <div />,
           { nodeType: 1 },
@@ -436,7 +436,7 @@ describe('shallow', () => {
       expect(wrapper.context('name')).to.equal(context.name);
     });
 
-    itIf(true, 'finds elements through Context elements', () => {
+    it('finds elements through Context elements', () => {
       const { Provider, Consumer } = createContext('');
 
       class Consumes extends React.Component {
@@ -461,7 +461,7 @@ describe('shallow', () => {
       expect(shallow(<Provides />).find(Consumes)).to.have.lengthOf(1);
     });
 
-    itIf(true, 'finds elements through forwarded refs elements', () => {
+    it('finds elements through forwarded refs elements', () => {
       const SomeComponent = forwardRef((props, ref) => (
         <div ref={ref}>
           <span className="child1" />
@@ -725,7 +725,7 @@ describe('shallow', () => {
         expect(wrapper.context('name')).to.equal(context.name);
       });
 
-      itIf(true, 'is not introspectable through context API', () => {
+      it('is not introspectable through context API', () => {
         const SimpleComponent = (props, { name }) => (
           <div>{name}</div>
         );
@@ -971,7 +971,7 @@ describe('shallow', () => {
           }
         }
 
-        itIf(true, 'warns and works but provides no context, without childContextTypes', () => {
+        it('warns and works but provides no context, without childContextTypes', () => {
           const stub = sinon.stub(console, 'warn');
           const wrapper = shallow(<Provider><Receiver /></Provider>).dive();
           expect(wrapper.debug()).to.equal(`<div>
@@ -1248,7 +1248,7 @@ describe('shallow', () => {
     });
   });
 
-  itIf(true, 'does not support fragments', () => {
+  it('does not support fragments', () => {
     const wrapper = () => shallow((
       <Fragment>
         <p>hello</p>
@@ -1552,7 +1552,7 @@ describe('shallow', () => {
           expect(wrapper.context('name')).to.equal(context.name);
         });
 
-        itIf(true, 'will throw when trying to inspect context', () => {
+        it('will throw when trying to inspect context', () => {
           const Bar = (props, { name }) => (
             <div>{name}</div>
           );
@@ -2222,7 +2222,7 @@ describe('shallow', () => {
         });
 
         // componentDidUpdate is not called in react 16
-        itIf(true, 'calls expected methods for setState', () => {
+        it('calls expected methods for setState', () => {
           const wrapper = shallow(<Foo />, options);
           expect(spy.args).to.deep.equal([
             ['componentWillMount'],
@@ -2409,7 +2409,7 @@ describe('shallow', () => {
     expect(rendered.html()).to.equal(null);
   });
 
-  itIf(true, 'works with class components that return arrays', () => {
+  it('works with class components that return arrays', () => {
     class Foo extends React.Component {
       render() {
         return [<div />, <div />];
@@ -2420,7 +2420,7 @@ describe('shallow', () => {
     expect(wrapper.find('div')).to.have.lengthOf(2);
   });
 
-  itIf(true, 'works with SFCs that return null', () => {
+  it('works with SFCs that return null', () => {
     const Foo = () => null;
 
     const wrapper = shallow(<Foo />);

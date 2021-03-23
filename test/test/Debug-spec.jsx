@@ -202,7 +202,7 @@ describe('debug', () => {
       ));
     });
 
-    itIf(true, 'renders stateless components as tags w/ name', () => {
+    it('renders stateless components as tags w/ name', () => {
       const Foo = () => <div />;
 
       expect(debugElement((

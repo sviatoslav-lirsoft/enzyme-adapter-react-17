@@ -83,7 +83,7 @@ export default function describeIsEmptyRender({
         expect(wrapper.isEmptyRender()).to.equal(false);
       });
 
-      itIf(true, 'returns false for multiple nested elements that all return null', () => {
+      it('returns false for multiple nested elements that all return null', () => {
         const wrapper = Wrap((
           <RenderChildren>
             <RenderNull />
@@ -97,7 +97,7 @@ export default function describeIsEmptyRender({
         expect(wrapper.isEmptyRender()).to.equal(false);
       });
 
-      itIf(true, 'returns false for multiple nested elements where one fringe returns a non null value', () => {
+      it('returns false for multiple nested elements where one fringe returns a non null value', () => {
         const wrapper = Wrap((
           <RenderChildren>
             <RenderNull />
@@ -120,7 +120,7 @@ export default function describeIsEmptyRender({
         expect(wrapper.isEmptyRender()).to.equal(false);
       });
 
-      itIf(true, `returns ${!isShallow} for multiple nested elements where all values are null`, () => {
+      it(`returns ${!isShallow} for multiple nested elements where all values are null`, () => {
         const wrapper = Wrap((
           <RenderChildren>
             <RenderNull />

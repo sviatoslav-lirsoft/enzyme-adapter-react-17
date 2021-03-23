@@ -195,7 +195,7 @@ describe('Adapter', () => {
       hydratedTreeMatchesUnhydrated(<Four />);
     });
 
-    itIf(true, 'works with ReactDOM.hydrate', () => {
+    it('works with ReactDOM.hydrate', () => {
       hydratedTreeMatchesUnhydrated(<One />, true);
       hydratedTreeMatchesUnhydrated(<Two />, true);
       hydratedTreeMatchesUnhydrated(<Three />, true);
@@ -268,7 +268,7 @@ describe('Adapter', () => {
       }));
     });
 
-    itIf(true, 'renders react portals', () => {
+    it('renders react portals', () => {
       const document = jsdom.jsdom();
       const options = { mode: 'mount' };
       const renderer = adapter.createRenderer(options);
@@ -318,7 +318,7 @@ describe('Adapter', () => {
       }));
     });
 
-    itIf(true, 'shallow renders react portals', () => {
+    it('shallow renders react portals', () => {
       const options = { mode: 'shallow' };
       const renderer = adapter.createRenderer(options);
       const innerDiv = <div className="Foo">Hello World!</div>;
@@ -368,7 +368,7 @@ describe('Adapter', () => {
       }));
     });
 
-    itIf(true, 'renders simple components returning host components', () => {
+    it('renders simple components returning host components', () => {
       const options = { mode: 'mount' };
       const renderer = adapter.createRenderer(options);
 
@@ -459,7 +459,7 @@ describe('Adapter', () => {
       }));
     });
 
-    itIf(true, 'renders complicated trees of composites and hosts', () => {
+    it('renders complicated trees of composites and hosts', () => {
       // SFC returning host. no children props.
       const Qoo = () => <span className="Qoo">Hello World!</span>;
 
@@ -958,7 +958,7 @@ describe('Adapter', () => {
   });
 
   describe('determines valid element types', () => {
-    itIf(true, 'supports stateless function components', () => {
+    it('supports stateless function components', () => {
       const SFC = () => null;
 
       expect(adapter.isValidElementType(SFC)).to.equal(true);
@@ -976,22 +976,22 @@ describe('Adapter', () => {
       expect(adapter.isValidElementType('div')).to.equal(true);
     });
 
-    itIf(true, 'supports Portals', () => {
+    it('supports Portals', () => {
       expect(adapter.isValidElementType(createPortal(<div />, { nodeType: 1 }))).to.equal(false);
     });
 
-    itIf(true, 'supports Context', () => {
+    it('supports Context', () => {
       const Context = createContext({ });
       expect(adapter.isValidElementType(Context.Consumer)).to.equal(true);
       expect(adapter.isValidElementType(Context.Provider)).to.equal(true);
     });
 
-    itIf(true, 'supports forward refs', () => {
+    it('supports forward refs', () => {
       expect(adapter.isValidElementType(forwardRef(() => null))).to.equal(true);
     });
   });
 
-  itIf(true, 'supports wrapping elements in a WrappingComponent', () => {
+  it('supports wrapping elements in a WrappingComponent', () => {
     class WrappingComponent extends React.Component {
       render() {
         return null;
@@ -1011,7 +1011,7 @@ describe('Adapter', () => {
   describe('provides node displayNames', () => {
     const getDisplayName = (el) => adapter.displayNameOfNode(adapter.elementToNode(el));
 
-    itIf(true, 'supports stateless function components', () => {
+    it('supports stateless function components', () => {
       const SFC = () => null;
 
       expect(getDisplayName(<SFC />)).to.equal('SFC');
@@ -1034,21 +1034,21 @@ describe('Adapter', () => {
       expect(getDisplayName(<div />)).to.equal('div');
     });
 
-    itIf(true, 'supports Fragments', () => {
+    it('supports Fragments', () => {
       expect(getDisplayName(<Fragment />)).to.equal('Fragment');
     });
 
-    itIf(true, 'supports Portals', () => {
+    it('supports Portals', () => {
       expect(getDisplayName(createPortal(<div />, { nodeType: 1 }))).to.equal('Portal');
     });
 
-    itIf(true, 'supports Context', () => {
+    it('supports Context', () => {
       const Context = createContext({});
       expect(getDisplayName(<Context.Consumer />)).to.equal('ContextConsumer');
       expect(getDisplayName(<Context.Provider />)).to.equal('ContextProvider');
     });
 
-    itIf(true, 'supports forward refs', () => {
+    it('supports forward refs', () => {
       const ForwaredRef = forwardRef(() => null);
       // eslint-disable-next-line prefer-arrow-callback
       const NamedForwardedRef = forwardRef(function Named() { return null; });
@@ -1057,7 +1057,7 @@ describe('Adapter', () => {
       expect(getDisplayName(<NamedForwardedRef />)).to.equal('ForwardRef(Named)');
     });
 
-    itIf(true, 'supports StrictMode', () => {
+    it('supports StrictMode', () => {
       expect(getDisplayName(<StrictMode />)).to.equal('StrictMode');
     });
 
@@ -1065,7 +1065,7 @@ describe('Adapter', () => {
       expect(getDisplayName(<AsyncMode />)).to.equal('AsyncMode');
     });
 
-    itIf(true, 'supports Profiler', () => {
+    it('supports Profiler', () => {
       expect(getDisplayName(<Profiler />)).to.equal('Profiler');
     });
 
@@ -1073,11 +1073,11 @@ describe('Adapter', () => {
       expect(getDisplayName(<ConcurrentMode />)).to.equal('ConcurrentMode');
     });
 
-    itIf(true, 'supports Suspense', () => {
+    it('supports Suspense', () => {
       expect(getDisplayName(<Suspense />)).to.equal('Suspense');
     });
 
-    itIf(true, 'supports lazy', () => {
+    it('supports lazy', () => {
       class DynamicComponent extends React.Component {
         render() {
           return <div>DynamicComponent</div>;
@@ -1191,7 +1191,7 @@ Warning: Failed Adapter-spec type: Invalid Adapter-spec \`foo\` of type \`string
       expect(adapter.isCustomComponent(undefined)).to.equal(false);
     });
 
-    itIf(true, 'returns true for forward refs', () => {
+    it('returns true for forward refs', () => {
       expect(adapter.isCustomComponent(forwardRef(() => null))).to.equal(true);
     });
   });

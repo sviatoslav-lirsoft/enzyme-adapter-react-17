@@ -169,7 +169,7 @@ export default function describeGetWrappingComponent({
       }
     });
 
-    itIf(true, 'updates a <Provider /> if it is rendered as root', () => {
+    it('updates a <Provider /> if it is rendered as root', () => {
       const Context = React.createContext();
       function WrappingComponent(props) {
         const { value, children } = props;

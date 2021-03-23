@@ -106,7 +106,7 @@ describeWithDOM('mount', () => {
         expect(spy).to.have.property('callCount', 1);
       });
 
-      itIf(true, 'passes an HTML element to `ref` when root rendered', () => {
+      it('passes an HTML element to `ref` when root rendered', () => {
         const spy = sinon.spy();
         mount(<div ref={spy} />);
         expect(spy).to.have.property('callCount', 1);
@@ -118,7 +118,7 @@ describeWithDOM('mount', () => {
         expect(firstArg).to.be.instanceOf(HTMLElement);
       });
 
-      itIf(true, 'passes an HTML element to `ref` when sub-rendered', () => {
+      it('passes an HTML element to `ref` when sub-rendered', () => {
         const spy = sinon.spy();
         class Foo extends React.Component {
           render() {
@@ -144,7 +144,7 @@ describeWithDOM('mount', () => {
         ))).to.throw(Error, 'Can only set one of `children` or `props.dangerouslySetInnerHTML`.');
       });
 
-      itIf(true, 'throws when mounting Portals', () => {
+      it('throws when mounting Portals', () => {
         const portal = createPortal(
           <div />,
           { nodeType: 1 },
@@ -1026,7 +1026,7 @@ describeWithDOM('mount', () => {
     });
   });
 
-  itIf(true, 'supports fragments', () => {
+  it('supports fragments', () => {
     const wrapper = mount((
       <Fragment>
         <p>hello</p>
@@ -1693,7 +1693,7 @@ describeWithDOM('mount', () => {
     expect(rendered.html()).to.equal(null);
   });
 
-  itIf(true, 'works with class components that return arrays', () => {
+  it('works with class components that return arrays', () => {
     class Foo extends React.Component {
       render() {
         return [<div />, <div />];
@@ -1706,7 +1706,7 @@ describeWithDOM('mount', () => {
     expect(wrapper.find('div')).to.have.lengthOf(2);
   });
 
-  itIf(true, 'works with SFCs that return null', () => {
+  it('works with SFCs that return null', () => {
     const Foo = () => null;
 
     const wrapper = mount(<Foo />);

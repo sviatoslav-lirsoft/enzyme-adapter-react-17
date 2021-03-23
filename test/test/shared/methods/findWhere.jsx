@@ -399,7 +399,7 @@ export default function describeFindWhere({
       expect(spy).to.have.property('callCount', 2);
     });
 
-    itIf(true, 'finds portals by react-is Portal type', () => {
+    it('finds portals by react-is Portal type', () => {
       const containerDiv = makeDOMElement();
       const Foo = () => (
         <div>

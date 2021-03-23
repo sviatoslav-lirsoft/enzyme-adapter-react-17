@@ -126,7 +126,7 @@ export default function describeSetContext({
 </Foo>`);
     });
 
-    itIf(true, 'calls componentWillReceiveProps and UNSAFE_componentWillReceiveProps when context is updated', () => {
+    it('calls componentWillReceiveProps and UNSAFE_componentWillReceiveProps when context is updated', () => {
       const spy = sinon.spy();
       const updatedProps = { foo: 'baz' };
       class Foo extends React.Component {

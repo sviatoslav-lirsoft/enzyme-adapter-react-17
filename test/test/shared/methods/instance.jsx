@@ -26,7 +26,7 @@ export default function describeInstance({
         return <div />;
       }
 
-      itIf(true, 'has no instance', () => {
+      it('has no instance', () => {
         const wrapper = Wrap(<SFC />);
         expect(wrapper.instance()).to.equal(null);
       });

@@ -63,7 +63,7 @@ export default function describeDebug({
         expect(wrapper.debug()).to.equal(debugNodes(wrapper.getNodesInternal()));
       });
 
-      itIf(true, 'with wrapping a stateless function component (SFC)', () => {
+      it('with wrapping a stateless function component (SFC)', () => {
         const wrapper = Wrap(<div />);
 
         expect(wrapper.debug()).to.equal('<div />');

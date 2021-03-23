@@ -50,7 +50,7 @@ export default function describeState({
       expect(() => wrapper.state()).to.throw(Error, `${WrapperName}::state() can only be called on class components`);
     });
 
-    itIf(true, 'throws on Portals', () => {
+    it('throws on Portals', () => {
       const containerDiv = makeDOMElement();
       const portal = createPortal(
         <div />,

@@ -51,7 +51,7 @@ export default function describeContext({
       );
     });
 
-    itIf(true, 'throws on SFCs that lack an instance', () => {
+    it('throws on SFCs that lack an instance', () => {
       const context = { name: 'bob' };
       const wrapper = Wrap(<SimpleComponentSFC />, { context });
       expect(() => wrapper.context()).to.throw(
@@ -99,7 +99,7 @@ export default function describeContext({
       expect(() => child.context()).to.throw(Error);
     });
 
-    itIf(true, 'throws on an SFC without an instance', () => {
+    it('throws on an SFC without an instance', () => {
       function Bar() {
         return <RendersHTML />;
       }

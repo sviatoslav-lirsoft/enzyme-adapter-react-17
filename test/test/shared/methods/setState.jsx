@@ -135,7 +135,7 @@ export default function describeSetState({
       expect(callback).to.have.property('callCount', 3);
     });
 
-    itIf(true, 'prevents an infinite loop if nextState is null or undefined from setState in CDU', () => {
+    it('prevents an infinite loop if nextState is null or undefined from setState in CDU', () => {
       let payload;
       const stub = sinon.stub(HasIDState.prototype, 'componentDidUpdate')
         .callsFake(function componentDidUpdate() { this.setState(() => payload); });

@@ -134,7 +134,7 @@ export default function describeSetProps({
         });
       });
 
-      itIf(true, 'merges, not replaces, props on SFCs', () => {
+      it('merges, not replaces, props on SFCs', () => {
         const wrapper = Wrap(<FooSFC id="foo" foo="bar" />);
         const rendered = () => (isShallow ? wrapper : wrapper.children());
 
