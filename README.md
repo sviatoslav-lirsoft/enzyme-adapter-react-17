@@ -4,6 +4,8 @@
 
 Unofficial adapter for React 17 for [Enzyme](https://enzymejs.github.io/enzyme/).
 
+Forked to work with Reaact 17.0.*
+
 ## Installation
 
 ```
